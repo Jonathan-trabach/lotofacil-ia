@@ -1,7 +1,21 @@
 import heapq
+import random
+
 def generated_sugestion_next_lotofacil(contagem_numeros):
     RESET = '\033[0m'
     AZUL = '\033[94m'
+
+    print("\n-----------------------------------------")
+
+    mensagem = "SUGESTAO DE PROXIMO CONCURSO - 16 DEZENAS - ALEATORIO"
+    print(f"{AZUL}{mensagem}{RESET}")
+
+    random_numeros = random.sample(contagem_numeros.items(), 16)
+    random_numeros = sorted(random_numeros, key=lambda x: x[0])
+
+    print("JOGO ALEATORIO : ")
+    for numero, repeticoes in random_numeros:
+        print(f"Número {numero}: {repeticoes} vezes")
 
     print("\n-----------------------------------------")
 
@@ -51,7 +65,7 @@ def generated_sugestion_next_lotofacil(contagem_numeros):
     top_numeros = contagem_numeros.most_common(18)
     top_numeros = sorted(top_numeros, key=lambda x: x[0])
 
-    print("Os 18 números que menos saíram:")
+    print("Os 18 números que mais saíram:")
     for numero, repeticoes in top_numeros:
         print(f"Número {numero}: {repeticoes} vezes")
 
